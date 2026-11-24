@@ -1,13 +1,24 @@
-import React from 'react';
-import { Outlet } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Outlet } from 'react-router-dom'
 
-function About(){
-  return(
+const About = () => {
+  const [count, setCount] = useState(0);
+
+  useEffect(()=>{
+    console.log('hello');
+    console.log(count);
+  })
+
+  return (
     <>
-      <h4>회사정보임</h4>
-      <Outlet></Outlet>
+        <div>About 페이지입니다.</div>
+        <h4>회사 정보</h4>
+        <Outlet />
+        <p>{count}</p>
+        <button onClick={()=>{setCount(count+1)}}>button</button>
     </>
-  );
+    
+  )
 }
 
 export default About

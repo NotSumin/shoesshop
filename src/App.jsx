@@ -1,16 +1,19 @@
-import { useState } from 'react';
-import './App.css';
-import data from './data';
-import { Link, Route, Routes, useNavigate } from 'react-router-dom';
+import { useState } from 'react'
+import './App.css'
+import data from './db/data'
+import { Route, Routes, useNavigate } from 'react-router-dom';
 import Home from './components/Home';
 import Detail from './components/Detail';
 import About from './components/About';
-
+import Footer from './components/Footer';
 
 function App() {
   const [shoes, setShoes] = useState(data);
+  // console.log(shoes[0].imgUrl);
+
   const navigate = useNavigate();
 
+  
   return (
     <div className="App">
       <nav className="bg-gray-900 text-white px-4 py-3 shadow-md">
@@ -36,19 +39,20 @@ function App() {
       </nav>
 
       <Routes>
-        <Route path='/' element={<Home shoes={shoes} />} />
+        <Route path='/' element={<Home shoes={shoes} setShoes={setShoes} />}></Route>
         <Route path='/detail/:id' element={<Detail shoes={shoes} />} />
         <Route path='/cart' element={<div>Cart</div>} />
         <Route path='/about' element={<About />}>
-          <Route path='member' element={<div>Member 페이지입니다.</div>} />
-          <Route path='location' element={<div>Location 페이지입니다.</div>} />
-        </Route>
+          <Route path='member' element={<div>Member 입니다.</div>} />
+          <Route path='location' element={<div>Location 입니다.</div>} />
+        </Route>        
         <Route path='*' element={<div>페이지를 찾을 수 없습니다.</div>} />
       </Routes>
 
+      <Footer />
+
     </div>
-  );
+  )
 }
 
-
-export default App;
+export default App

@@ -1,9 +1,10 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom'
 
 const Product = (props) => {
     const navigate = useNavigate();
-    const { id, title, imgUrl, price } = props.shoes;
+    // console.log(props.shoes)
+    const {id, title, imgUrl, price} = props.shoes  // 비구조할당
 
     return (
         <div className="flex flex-col items-center" onClick={()=>{navigate('/detail/' + id)}}>
