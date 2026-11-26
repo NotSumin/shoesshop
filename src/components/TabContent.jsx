@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import '../App.css';
 import { Context1 } from '../App';
 
-const TabContent = ({ tab, shoes }) => {
+const TabContent = ({ tab }) => {
     const [fade, setFade] = useState('');
-    const { remain } = useContext(Context1);
+    const { remain, shoes } = useContext(Context1);
 
     useEffect(()=>{
         const animationTimer = setTimeout(()=>{setFade('end'), 50})
